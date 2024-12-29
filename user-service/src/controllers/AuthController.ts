@@ -55,6 +55,7 @@ const createSendToken = async (user: IUser, res: Response) => {
   })
   if (config.env === "production") cookieOptions.secure = true;
   res.cookie("jwt", token, cookieOptions);
+  return token
 }
 
 export const login = asyncHandler(async (req: Request, res: Response) => {
