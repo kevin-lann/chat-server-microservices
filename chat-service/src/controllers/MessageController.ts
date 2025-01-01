@@ -7,16 +7,15 @@ import asyncHandler from "../middleware/asyncHandler";
 const send = asyncHandler(async (req: AuthRequest, res: Response) => {
   try {
     const {receiverId, message} = req.body
-    const {_id, email, name} = req.user
+    const {_id, email, name} = req.user // sender
 
-    validateReciever(_id, receiverId)
-
+    validateReceiver(_id, receiverId)
     const newMessage = await Message.create({
       senderId: _id,
       receiverId,
       message,
     })
-
+    
     await handleMessageReceived(name, email, receiverId, message)
 
     return res.json({
@@ -33,7 +32,7 @@ const send = asyncHandler(async (req: AuthRequest, res: Response) => {
   }
 })
 
-const validateReciever = async (senderId: string, receiverId: string) => {
+const validateReceiver = async (senderId: string, receiverId: string) => {
   if (!receiverId) {
     throw new ApiError(404, "Receiver ID is required.");
   }

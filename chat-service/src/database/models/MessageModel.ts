@@ -20,7 +20,7 @@ const MessageSchema: Schema = new Schema({
     type: String,
     required: true
   },
-  recieverId: {
+  receiverId: {
     type: String,
     required: true,
   },

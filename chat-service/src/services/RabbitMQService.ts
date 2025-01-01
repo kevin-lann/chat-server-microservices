@@ -10,6 +10,7 @@ class RabbitMQService {
 
   constructor () {
     this.init()
+    console.log("RabbitMQ client initiated and listening for messages")
   }
 
   async init () {
