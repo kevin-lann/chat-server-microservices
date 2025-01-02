@@ -1,0 +1,26 @@
+{
+  "name": "notification-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/amqplib": "^0.10.6",
+    "@types/express": "^5.0.0",
+    "@types/nodemailer": "^6.4.17",
+    "amqplib": "^0.10.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2",
+    "nodemailer": "^6.9.16",
+    "nodemon": "^3.1.9",
+    "sib-api-v3-typescript": "^2.2.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
+}
