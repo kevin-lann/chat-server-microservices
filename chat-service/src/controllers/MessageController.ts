@@ -7,7 +7,7 @@ import asyncHandler from "../middleware/asyncHandler";
 const send = asyncHandler(async (req: AuthRequest, res: Response) => {
   try {
     const {receiverId, message} = req.body
-    const {_id, email, name} = req.user // sender
+    const {_id, email, name} = req.body.user // sender
 
     validateReceiver(_id, receiverId)
     const newMessage = await Message.create({

@@ -9,12 +9,12 @@ const auth = proxy("http://localhost:8081")
 const messages = proxy("http://localhost:8082")
 const notifications = proxy("http://localhost:8083")
 
-app.use("/api/auth", auth)
-app.use("/api/messages", messages)
-app.use("/api/notifications", notifications)
+app.use("/user", auth)
+app.use("/chat", messages)
+app.use("/notification", notifications)
 
-const server = app.listen(8080, () => {
-  console.log("Gateway is listening on port 8080")
+const server = app.listen(85, () => {
+  console.log("Gateway is listening on port 85")
 })
 
 const exitHandler = () => {
