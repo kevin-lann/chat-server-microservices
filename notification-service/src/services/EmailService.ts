@@ -31,6 +31,4 @@ export class EmailService {
       console.error("Error sending email: ", error)
     }
   }
-
-
 }
