@@ -5,6 +5,9 @@ import { errorConverter, errorHandler } from "./middlewares";
 import { connectDB } from "./database";
 import config from "./config/config";
 import { rabbitMQService } from "./services/RabbitMQService";
+import swaggerjsdoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+import { swaggerOptions } from "./config/swaggerOptions";
 
 const app: Express = express();
 const HOST = "localhost"
@@ -14,6 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(userRouter);
 app.use(errorConverter);
 app.use(errorHandler);
+
+const swaggerDocs = swaggerjsdoc(swaggerOptions)
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs))
 
 connectDB();
 
