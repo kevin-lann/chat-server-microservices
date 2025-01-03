@@ -46,6 +46,7 @@ const getConversation = asyncHandler(async (req: AuthRequest, res: Response) => 
   try {
     const {receiverId} = req.params
     const senderId = req.user._id
+    console.log(">>>>> req.user: ", req.user)
 
     const messages = await Message.find({
       $or: [

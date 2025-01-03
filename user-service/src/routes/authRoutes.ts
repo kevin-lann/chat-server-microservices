@@ -53,11 +53,29 @@ const userRouter = express.Router();
  *     summary: Register new user.
  *     tags: [Auth]
  *     description: Register new user.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: "#/components/schemas/User"
  *     responses:
  *       '400':
  *         description: User already exists
  *       '200':
  *         description: A successful response
+ *         content: 
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id: 
+ *                   type: string
+ *                 name:
+ *                   type: string
+ *                 email:
+ *                   type: string
+ *               required: ['id', 'name', 'email']
  *       '500':
  *         description: Internal server error
  */
@@ -69,11 +87,27 @@ userRouter.post("/register", register);
  *     summary: Login.
  *     tags: [Auth]
  *     description: Login.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *             required: ['email', 'password']
  *     responses:
  *       '200':
  *         description: A successful response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: string
  *       '400':
- *         description: Incorrrct Email or Password
+ *         description: Incorrect Email or Password
  *       '404':
  *         description: User not found
  *       '500':
