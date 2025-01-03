@@ -1,4 +1,4 @@
-# Microservice based Chat server
+# Microservice based Chat server 🗨️
 Microservice-based chat application server that I built in express.js. Includes:
 - JWT Auth
 - API Gateway
